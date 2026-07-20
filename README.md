@@ -43,9 +43,7 @@ The frontend ships with a polished UI: dark/light theme, AOS scroll animations, 
 | Bundler     | Vite 8 + `laravel-vite-plugin` |
 | Styling     | Bootstrap 5.3, Font Awesome, custom CSS variables |
 | Animation   | AOS 2.3, SweetAlert2 11 |
-| Database    | SQLite (default `database/database.sqlite`) — swap to MySQL/Postgres via `.env` |
-| Testing     | PHPUnit 12, Mockery, Faker, Laravel Pint |
-| Dev tools   | `concurrently`, Laravel Pail (log tailing), `nunomaduro/collision` |
+| Database    | MySQL via `.env` |
 
 ---
 
@@ -108,8 +106,8 @@ database/migrations/                    # users, projects, experiences, contact_
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url> mahfoozurrahman-portfolio
-cd mahfoozurrahman-portfolio
+git clone https://github.com/mmahfoozurrahman/mahfoozurrahman-laravel-vue-portfolio
+cd mahfoozurrahman-laravel-vue-portfolio
 
 # 2. Install PHP dependencies
 composer install
