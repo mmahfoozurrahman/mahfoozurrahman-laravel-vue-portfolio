@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\SiteSettingController as AdminSiteSettingController;
 use App\Http\Controllers\Admin\ContactMessageController as AdminContactMessageController;
 use App\Http\Controllers\AppLayoutController;
+use App\Http\Controllers\CaptchaController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,15 @@ Route::controller(AppLayoutController::class)->group(function () {
 });
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+/*
+|--------------------------------------------------------------------------
+| Reusable Math Captcha Endpoint (addition/subtraction verification)
+|--------------------------------------------------------------------------
+| Generates a server-side challenge stored in the session. Any form
+| (login, register, contact, etc.) can consume it via MathCaptcha.vue.
+*/
+Route::get('/captcha/math', [CaptchaController::class, 'generate'])->name('captcha.math');
 
 /*
 |--------------------------------------------------------------------------

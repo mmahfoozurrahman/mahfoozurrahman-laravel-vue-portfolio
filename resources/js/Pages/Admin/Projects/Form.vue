@@ -192,10 +192,7 @@ const submitForm = () => {
     };
 
     if (isEdit.value) {
-        form.post(`/admin/projects/${props.project.id}`, {
-            ...requestOptions,
-            _method: 'PUT',
-        });
+        form.put(`/admin/projects/${props.project.id}`, requestOptions);
     } else {
         form.post('/admin/projects', requestOptions);
     }

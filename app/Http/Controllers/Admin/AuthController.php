@@ -24,10 +24,28 @@ class AuthController extends Controller
      */
     public function login(Request $request): RedirectResponse
     {
-        $credentials = $request->validate([
+        $validated = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
+            'captcha' => 'required',
         ]);
+
+        // Verify the math captcha answer against the session-stored answer
+        $expectedAnswer = $request->session()->get('captcha_answer');
+        if ($expectedAnswer === null || (string) $request->input('captcha') !== $expectedAnswer) {
+            // Regenerate a fresh challenge for the next attempt
+            $this->refreshCaptcha($request);
+
+            return back()->withErrors([
+                'captcha' => 'The verification answer is incorrect. Please try again.',
+            ])->onlyInput('email');
+        }
+
+        // Only use email and password as credentials for Auth::attempt.
+        $credentials = [
+            'email' => $validated['email'],
+            'password' => $validated['password'],
+        ];
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
@@ -53,5 +71,23 @@ class AuthController extends Controller
 
         return redirect()->route('admin.login')
             ->with('success', 'Logged out successfully.');
+    }
+
+    /**
+     * Generate a fresh math captcha challenge in the session.
+     * Kept here so the login flow can refresh after failures.
+     */
+    private function refreshCaptcha(Request $request): void
+    {
+        $a = random_int(1, 20);
+        $b = random_int(1, 20);
+        $operator = random_int(0, 1) === 1 ? '+' : '-';
+
+        if ($operator === '-' && $b > $a) {
+            [$a, $b] = [$b, $a];
+        }
+
+        $answer = $operator === '+' ? $a + $b : $a - $b;
+        $request->session()->put('captcha_answer', (string) $answer);
     }
 }
