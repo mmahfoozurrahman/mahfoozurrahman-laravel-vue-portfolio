@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | Mahfoozur Rahman</title>
+    <meta name="description" content="Get in touch with Mahfoozur Rahman. Open to remote full-stack roles and relocation to Japan (Engineer Visa). Drop a message or chat with the AI assistant.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100 loading">
+    <!-- Immediate Theme Application to prevent green flash (FOUC) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+            }
+        })();
+    </script>
+
+    <!-- Beautiful Dynamic Craftsman Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring-inner"></div>
+                <i class="fa-solid fa-terminal preloader-icon text-accent"></i>
+            </div>
+            <span class="preloader-text font-mono">Mahfoozur<span>.dev</span></span>
+        </div>
+    </div>
+
+    <!-- Unified Glassmorphism Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-terminal text-accent me-2"></i>Mahfoozur<span>.dev</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="github.html">GitHub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header Header -->
+    <header class="page-header text-center">
+        <div class="container" data-aos="fade-down">
+            <span class="font-mono text-accent fs-6">GET IN TOUCH</span>
+            <h1 class="display-4 mt-2 mb-3">Contact Me</h1>
+            <p class="text-secondary mx-auto" style="max-width: 600px;">
+                Have a proposal, an open role, or a technical project you want to discuss? Fill out the form or trigger my AI Assistant for instant inquiries.
+            </p>
+        </div>
+    </header>
+
+    <!-- Contact Content Section -->
+    <section class="py-5">
+        <div class="container py-3">
+            <div class="row g-5">
+                
+                <!-- Left Column: Form & Placement Alert -->
+                <div class="col-lg-7" data-aos="fade-right">
+                    
+                    <!-- Relocation Notice -->
+                    <div class="alert-custom mb-4" style="background-color: rgba(0, 191, 166, 0.02); border-style: solid;">
+                        <div class="alert-custom-icon">
+                            <i class="fa-solid fa-plane-departure"></i>
+                        </div>
+                        <div>
+                            <strong class="text-gradient">Employment Notice:</strong>
+                            <p class="mb-0 text-secondary mt-1" style="font-size: 0.85rem;">
+                                Highly open to remote full-time contracts and relocation to Tokyo or Osaka, Japan. Eligible for an Engineer Visa sponsorship.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="card-custom h-auto">
+                        <h3 class="h4 mb-4 font-mono"><i class="fa-solid fa-square-envelope text-accent me-2"></i>Send Message</h3>
+                        
+                        <form id="contact-form" onsubmit="event.preventDefault(); alert('Message sent! (Front-end demo only - wiring to Laravel controller ready)');">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label font-mono text-secondary small">Name</label>
+                                    <input type="text" class="form-control contact-input" id="name" required placeholder="John Doe">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label font-mono text-secondary small">Email</label>
+                                    <input type="email" class="form-control contact-input" id="email" required placeholder="john@example.com">
+                                </div>
+                                <div class="col-12">
+                                    <label for="subject" class="form-label font-mono text-secondary small">Subject</label>
+                                    <input type="text" class="form-control contact-input" id="subject" required placeholder="Project Inquiry / Job Opening">
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label font-mono text-secondary small">Message</label>
+                                    <textarea class="form-control contact-input" id="message" rows="5" required placeholder="Hi Mahfoozur, I'd like to discuss..."></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-custom btn-custom-primary w-100">
+                                        <i class="fa-solid fa-paper-plane me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Column: Direct Info & AI Prompting Widget -->
+                <div class="col-lg-5" data-aos="fade-left">
+                    
+                    <!-- Direct Info Block -->
+                    <div class="card-custom mb-4 h-auto">
+                        <h3 class="h4 mb-4 font-mono"><i class="fa-solid fa-address-card text-accent me-2"></i>Inquiries</h3>
+                        
+                        <!-- Email -->
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="font-mono text-secondary small d-block">EMAIL ADDRESS</span>
+                                <a href="mailto:mahfoozur.rahman@example.com" class="text-primary font-mono fw-semibold">mahfoozur.rahman@example.com</a>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <span class="font-mono text-secondary small d-block">LINKEDIN</span>
+                                <a href="https://linkedin.com" target="_blank" class="text-primary font-mono fw-semibold">linkedin.com/in/mahfoozur-rahman</a>
+                            </div>
+                        </div>
+
+                        <!-- GitHub -->
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                            <div>
+                                <span class="font-mono text-secondary small d-block">GITHUB</span>
+                                <a href="https://github.com" target="_blank" class="text-primary font-mono fw-semibold">github.com/mmrahman</a>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="contact-info-item mb-0">
+                            <div class="contact-info-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="font-mono text-secondary small d-block">LOCATION</span>
+                                <span class="text-primary font-mono fw-semibold">Dhaka, Bangladesh</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Bot Widget Promo -->
+                    <div class="card-custom h-auto" style="border-color: var(--accent-primary); box-shadow: 0 8px 30px var(--accent-glow);">
+                        <h3 class="h4 mb-2 font-mono text-accent"><i class="fa-solid fa-robot me-2"></i>AI Assistant</h3>
+                        <p class="text-secondary small mb-4">
+                            Don't want to wait for an email? Chat with my interactive digital assistant to get instantaneous, structured answers.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <span class="font-mono text-secondary small d-block mb-2">QUICK TOPICS TO ASK:</span>
+                            <div class="d-flex flex-column gap-2">
+                                <a href="#" id="start-ai-chat" class="btn btn-custom btn-custom-outline btn-custom-sm text-start py-2">
+                                    <i class="fa-solid fa-location-arrow me-2 text-accent"></i>Are you ready to relocate to Japan?
+                                </a>
+                                <a href="#" id="start-ai-chat" class="btn btn-custom btn-custom-outline btn-custom-sm text-start py-2">
+                                    <i class="fa-solid fa-location-arrow me-2 text-accent"></i>What is your primary tech stack?
+                                </a>
+                            </div>
+                        </div>
+
+                        <button id="start-ai-chat" class="btn btn-custom btn-custom-primary w-100 py-2">
+                            <i class="fa-solid fa-comments me-2"></i>Open Chat Widget
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unified Rich Footer -->
+    <footer class="py-5 mt-auto border-top border-color bg-secondary">
+        <div class="container">
+            <div class="row g-4 mb-4 text-start">
+                <!-- Column 1: Short Bio & Status -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="h6 font-mono text-accent mb-3"><i class="fa-solid fa-terminal me-2"></i>Mahfoozur<span>.dev</span></h5>
+                    <p class="text-secondary small mb-3">
+                        A dedicated full-stack craftsman engineering robust Laravel + Vue 3 systems. Nearly 10 years of self-taught experience shipping premium web applications.
+                    </p>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="location-dot" style="width: 8px; height: 8px;"></span>
+                        <span class="font-mono text-secondary" style="font-size: 0.75rem;">Status: Available for Remote & Japan Relocation</span>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Navigation Links -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h5 class="h6 font-mono text-accent mb-3">Navigation</h5>
+                    <ul class="list-unstyled mb-0 font-mono" style="font-size: 0.85rem;">
+                        <li class="mb-2"><a href="index.html" class="text-secondary hover-accent">Home</a></li>
+                        <li class="mb-2"><a href="experience.html" class="text-secondary hover-accent">Experience</a></li>
+                        <li class="mb-2"><a href="portfolio.html" class="text-secondary hover-accent">Portfolio</a></li>
+                        <li class="mb-2"><a href="github.html" class="text-secondary hover-accent">GitHub</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-secondary hover-accent">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Primary Stack -->
+                <div class="col-lg-3 col-md-6 col-6">
+                    <h5 class="h6 font-mono text-accent mb-3">Primary Stack</h5>
+                    <ul class="list-unstyled mb-0 font-mono text-secondary" style="font-size: 0.85rem;">
+                        <li class="mb-2"><i class="fa-brands fa-laravel text-accent me-2"></i>Laravel Core</li>
+                        <li class="mb-2"><i class="fa-brands fa-vuejs text-accent me-2"></i>Vue 3 & Inertia</li>
+                        <li class="mb-2"><i class="fa-solid fa-database text-accent me-2"></i>MySQL & Redis</li>
+                        <li class="mb-2"><i class="fa-solid fa-microchip text-accent me-2"></i>AI Hybrid SaaS</li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Inquiries -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="h6 font-mono text-accent mb-3">Location</h5>
+                    <p class="text-secondary small mb-3">
+                        Dhaka, Bangladesh<br>
+                        Open to Remote & Japan Relocation (Engineer Visa)
+                    </p>
+                    <a href="contact.html" class="btn btn-custom btn-custom-outline btn-custom-sm w-100 mb-2 text-center" style="font-size: 0.8rem; border-color: var(--border-color);">
+                        <i class="fa-solid fa-paper-plane me-2"></i>Send Message
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-top border-color pt-4 d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <p class="mb-0 font-mono text-secondary" style="font-size: 0.8rem;">
+                    &copy; 2026 Mahfoozur Rahman (Tusher). All rights reserved.
+                </p>
+                <div class="mt-3 mt-md-0">
+                    <a href="https://github.com" target="_blank" class="text-secondary mx-2 fs-5 hover-accent" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="text-secondary mx-2 fs-5 hover-accent" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:mahfoozur.rahman@example.com" class="text-secondary mx-2 fs-5 hover-accent" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating AI Chat Widget Trigger -->
+    <button class="ai-chat-trigger" id="ai-chat-trigger" aria-label="Open AI Assistant" title="Chat with AI Assistant">
+        <i class="fa-solid fa-robot"></i>
+    </button>
+
+    <!-- AI Chat Panel -->
+    <div class="ai-chat-panel" id="ai-chat-panel">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-header-avatar">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div>
+                    <h5 class="chat-header-title">Tusher's AI Bot</h5>
+                    <span class="chat-header-status">Online</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" id="chat-close" aria-label="Close Chat">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-message chat-message-bot">
+                Hi! I'm Tusher's AI assistant. Ask me about his work, skills, or projects!
+            </div>
+        </div>
+        <div class="chat-footer">
+            <div class="chat-input-group">
+                <input type="text" class="chat-input-field" id="chat-input" placeholder="Type a message..." aria-label="Type a message to AI Assistant">
+                <button class="chat-send-btn" id="chat-send" aria-label="Send message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS.js Scroll Animations -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Main Interactivity JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

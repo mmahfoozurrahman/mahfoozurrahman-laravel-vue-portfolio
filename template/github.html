@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Projects | Mahfoozur Rahman</title>
+    <meta name="description" content="Explore Mahfoozur Rahman's open source contributions and active repositories on GitHub. Laravel backends, database plugins, and single-page apps.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100 loading">
+    <!-- Immediate Theme Application to prevent green flash (FOUC) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+            }
+        })();
+    </script>
+
+    <!-- Beautiful Dynamic Craftsman Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring-inner"></div>
+                <i class="fa-solid fa-terminal preloader-icon text-accent"></i>
+            </div>
+            <span class="preloader-text font-mono">Mahfoozur<span>.dev</span></span>
+        </div>
+    </div>
+
+    <!-- Unified Glassmorphism Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-terminal text-accent me-2"></i>Mahfoozur<span>.dev</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="github.html">GitHub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header Header -->
+    <header class="page-header text-center">
+        <div class="container" data-aos="fade-down">
+            <span class="font-mono text-accent fs-6">OPEN SOURCE SCRIPTS</span>
+            <h1 class="display-4 mt-2 mb-3">GitHub Projects</h1>
+            <p class="text-secondary mx-auto" style="max-width: 600px;">
+                Exploring my public code repositories, utility scripts, and system integrations. These projects highlight coding craftsmanship and API-driven design.
+            </p>
+        </div>
+    </header>
+
+    <!-- GitHub Grid Section -->
+    <section class="py-5">
+        <div class="container py-3">
+            
+            <!-- Terminal API Info Notice -->
+            <div class="row justify-content-center mb-5" data-aos="fade-up">
+                <div class="col-lg-10">
+                    <div class="card-custom font-mono" style="padding: 1rem 1.5rem; background-color: var(--code-thumb-bg); border-style: dashed;">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="text-accent" style="font-size: 0.85rem;"><i class="fa-solid fa-circle-nodes me-2"></i>api.github.com/users/mmrahman/repos</span>
+                            <span class="text-secondary" style="font-size: 0.75rem;">Status: <span class="text-success">200 OK</span></span>
+                        </div>
+                        <p class="mb-0 text-secondary" style="font-size: 0.8rem; line-height: 1.4;">
+                            <span class="text-accent">[API Info]</span> The repository grid below is currently operating on structured placeholder HTML. 
+                            During Laravel integration, this component will be wired to the <code>Http</code> client to automatically fetch repository statistics, star counts, and last-updated marks, storing them in custom cache lines to prevent rate limits.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repo Cards Grid -->
+            <div class="row g-4">
+                
+                <!-- Repo 1: Loan & Investment SaaS -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
+                    <div class="github-repo-card">
+                        <div class="repo-header">
+                            <h3 class="repo-name"><a href="https://github.com" target="_blank"><i class="fa-brands fa-github me-2"></i>loan-investment-saas</a></h3>
+                            <span class="tech-badge font-mono">Public</span>
+                        </div>
+                        <p class="repo-desc">
+                            Core engine and multi-tenant ledger for financial investment tools. Includes double-entry accounting models and robust multi-tenant middleware systems.
+                        </p>
+                        <div class="repo-meta mt-auto">
+                            <span><span class="lang-dot lang-php"></span>PHP</span>
+                            <span><i class="fa-regular fa-star me-1"></i>42</span>
+                            <span><i class="fa-solid fa-code-fork me-1"></i>14</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repo 2: LMS - LaraCodeVault -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="github-repo-card">
+                        <div class="repo-header">
+                            <h3 class="repo-name"><a href="https://github.com" target="_blank"><i class="fa-brands fa-github me-2"></i>laracodevault-lms</a></h3>
+                            <span class="tech-badge font-mono">Public</span>
+                        </div>
+                        <p class="repo-desc">
+                            Laravel portal and code snippet repository system. Interactive dashboard with progress marks and rich dynamic video courses handling.
+                        </p>
+                        <div class="repo-meta mt-auto">
+                            <span><span class="lang-dot lang-php"></span>PHP</span>
+                            <span><i class="fa-regular fa-star me-1"></i>56</span>
+                            <span><i class="fa-solid fa-code-fork me-1"></i>18</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repo 3: ISP Billing Tracker -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="github-repo-card">
+                        <div class="repo-header">
+                            <h3 class="repo-name"><a href="https://github.com" target="_blank"><i class="fa-brands fa-github me-2"></i>isp-billing-tracker</a></h3>
+                            <span class="tech-badge font-mono">Public</span>
+                        </div>
+                        <p class="repo-desc">
+                            Subscription tracker and invoicing application optimized for ISP service management. Automates monthly invoice emails and subscriber notifications.
+                        </p>
+                        <div class="repo-meta mt-auto">
+                            <span><span class="lang-dot lang-php"></span>PHP</span>
+                            <span><i class="fa-regular fa-star me-1"></i>28</span>
+                            <span><i class="fa-solid fa-code-fork me-1"></i>9</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repo 4: Lilla Sushi -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="github-repo-card">
+                        <div class="repo-header">
+                            <h3 class="repo-name"><a href="https://github.com" target="_blank"><i class="fa-brands fa-github me-2"></i>lilla-sushi-app</a></h3>
+                            <span class="tech-badge font-mono">Public</span>
+                        </div>
+                        <p class="repo-desc">
+                            Food delivery dashboard and dynamic POS checkout interface deployed in France. Integrates real-time delivery routing and checkout.
+                        </p>
+                        <div class="repo-meta mt-auto">
+                            <span><span class="lang-dot lang-php"></span>PHP</span>
+                            <span><i class="fa-regular fa-star me-1"></i>89</span>
+                            <span><i class="fa-solid fa-code-fork me-1"></i>31</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repo 5: LibraSys -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+                    <div class="github-repo-card">
+                        <div class="repo-header">
+                            <h3 class="repo-name"><a href="https://github.com" target="_blank"><i class="fa-brands fa-github me-2"></i>librasys-engine</a></h3>
+                            <span class="tech-badge font-mono">Public</span>
+                        </div>
+                        <p class="repo-desc">
+                            Inertia.js and Vue 3 client application coupled with Laravel 11. Handles catalogs indexing, digital lending pipelines, and user notifications.
+                        </p>
+                        <div class="repo-meta mt-auto">
+                            <span><span class="lang-dot lang-vue"></span>Vue</span>
+                            <span><i class="fa-regular fa-star me-1"></i>31</span>
+                            <span><i class="fa-solid fa-code-fork me-1"></i>6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repo 6: URL Shortener API -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="github-repo-card">
+                        <div class="repo-header">
+                            <h3 class="repo-name"><a href="https://github.com" target="_blank"><i class="fa-brands fa-github me-2"></i>url-shortener-rest-api</a></h3>
+                            <span class="tech-badge font-mono">Public</span>
+                        </div>
+                        <p class="repo-desc">
+                            RESTful url shortener API using plain PHP MVC design. Rate limit headers integrated via custom server-side middleware and Redis.
+                        </p>
+                        <div class="repo-meta mt-auto">
+                            <span><span class="lang-dot lang-js"></span>JavaScript</span>
+                            <span><i class="fa-regular fa-star me-1"></i>19</span>
+                            <span><i class="fa-solid fa-code-fork me-1"></i>5</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Profile CTA Button -->
+            <div class="row mt-5 pt-3" data-aos="zoom-in">
+                <div class="col text-center">
+                    <a href="https://github.com" target="_blank" class="btn btn-custom btn-custom-primary">
+                        <i class="fa-brands fa-github me-2"></i>View Full GitHub Profile
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Unified Rich Footer -->
+    <footer class="py-5 mt-auto border-top border-color bg-secondary">
+        <div class="container">
+            <div class="row g-4 mb-4 text-start">
+                <!-- Column 1: Short Bio & Status -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="h6 font-mono text-accent mb-3"><i class="fa-solid fa-terminal me-2"></i>Mahfoozur<span>.dev</span></h5>
+                    <p class="text-secondary small mb-3">
+                        A dedicated full-stack craftsman engineering robust Laravel + Vue 3 systems. Nearly 10 years of self-taught experience shipping premium web applications.
+                    </p>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="location-dot" style="width: 8px; height: 8px;"></span>
+                        <span class="font-mono text-secondary" style="font-size: 0.75rem;">Status: Available for Remote & Japan Relocation</span>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Navigation Links -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h5 class="h6 font-mono text-accent mb-3">Navigation</h5>
+                    <ul class="list-unstyled mb-0 font-mono" style="font-size: 0.85rem;">
+                        <li class="mb-2"><a href="index.html" class="text-secondary hover-accent">Home</a></li>
+                        <li class="mb-2"><a href="experience.html" class="text-secondary hover-accent">Experience</a></li>
+                        <li class="mb-2"><a href="portfolio.html" class="text-secondary hover-accent">Portfolio</a></li>
+                        <li class="mb-2"><a href="github.html" class="text-secondary hover-accent">GitHub</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-secondary hover-accent">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Primary Stack -->
+                <div class="col-lg-3 col-md-6 col-6">
+                    <h5 class="h6 font-mono text-accent mb-3">Primary Stack</h5>
+                    <ul class="list-unstyled mb-0 font-mono text-secondary" style="font-size: 0.85rem;">
+                        <li class="mb-2"><i class="fa-brands fa-laravel text-accent me-2"></i>Laravel Core</li>
+                        <li class="mb-2"><i class="fa-brands fa-vuejs text-accent me-2"></i>Vue 3 & Inertia</li>
+                        <li class="mb-2"><i class="fa-solid fa-database text-accent me-2"></i>MySQL & Redis</li>
+                        <li class="mb-2"><i class="fa-solid fa-microchip text-accent me-2"></i>AI Hybrid SaaS</li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Inquiries -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="h6 font-mono text-accent mb-3">Location</h5>
+                    <p class="text-secondary small mb-3">
+                        Dhaka, Bangladesh<br>
+                        Open to Remote & Japan Relocation (Engineer Visa)
+                    </p>
+                    <a href="contact.html" class="btn btn-custom btn-custom-outline btn-custom-sm w-100 mb-2 text-center" style="font-size: 0.8rem; border-color: var(--border-color);">
+                        <i class="fa-solid fa-paper-plane me-2"></i>Send Message
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-top border-color pt-4 d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <p class="mb-0 font-mono text-secondary" style="font-size: 0.8rem;">
+                    &copy; 2026 Mahfoozur Rahman (Tusher). All rights reserved.
+                </p>
+                <div class="mt-3 mt-md-0">
+                    <a href="https://github.com" target="_blank" class="text-secondary mx-2 fs-5 hover-accent" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="text-secondary mx-2 fs-5 hover-accent" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:mahfoozur.rahman@example.com" class="text-secondary mx-2 fs-5 hover-accent" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating AI Chat Widget Trigger -->
+    <button class="ai-chat-trigger" id="ai-chat-trigger" aria-label="Open AI Assistant" title="Chat with AI Assistant">
+        <i class="fa-solid fa-robot"></i>
+    </button>
+
+    <!-- AI Chat Panel -->
+    <div class="ai-chat-panel" id="ai-chat-panel">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-header-avatar">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div>
+                    <h5 class="chat-header-title">Tusher's AI Bot</h5>
+                    <span class="chat-header-status">Online</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" id="chat-close" aria-label="Close Chat">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-message chat-message-bot">
+                Hi! I'm Tusher's AI assistant. Ask me about his work, skills, or projects!
+            </div>
+        </div>
+        <div class="chat-footer">
+            <div class="chat-input-group">
+                <input type="text" class="chat-input-field" id="chat-input" placeholder="Type a message..." aria-label="Type a message to AI Assistant">
+                <button class="chat-send-btn" id="chat-send" aria-label="Send message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS.js Scroll Animations -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Main Interactivity JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
