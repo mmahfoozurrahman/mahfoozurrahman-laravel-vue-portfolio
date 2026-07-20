@@ -26,6 +26,19 @@ class AppLayoutController extends Controller
     {
         return Inertia::render('Home', [
             'settings' => $this->getSettings(),
+            'experience' => Experience::query()
+                ->orderByDesc('is_featured')
+                ->orderBy('sort_order')
+                ->first(),
+            'projects' => Project::query()
+                ->orderByDesc('is_featured')
+                ->orderBy('sort_order')
+                ->limit(3)
+                ->get(),
+            'repos' => GithubRepo::query()
+                ->orderByDesc('stars_count')
+                ->limit(2)
+                ->get(),
         ]);
     }
 

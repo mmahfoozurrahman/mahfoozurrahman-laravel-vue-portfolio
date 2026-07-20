@@ -12,7 +12,7 @@
                         <div class="location-badge">
                             <span class="location-dot"></span>
                             <span class="font-mono text-secondary">
-                                {{ settings.location || 'Dhaka, Bangladesh' }} · Remote-Ready · Japan-Bound
+                                {{ settings.location || 'Dhaka, Bangladesh' }} · Remote-Ready
                             </span>
                         </div>
 
@@ -63,17 +63,12 @@
                                 <div class="hero-ring" aria-hidden="true"></div>
 
                                 <div class="hero-photo-frame">
-                                    <img :src="'/img/myself.jpg'" :alt="(settings.owner_name || 'Mahfoozur Rahman')" class="hero-visual-image" />
+                                    <img :src="avatarUrl" :alt="(settings.owner_name || 'Mahfoozur Rahman')" class="hero-visual-image" />
                                     <div class="hero-photo-overlay" aria-hidden="true"></div>
                                 </div>
 
                                 <!-- Skill pills positioned around the ring -->
-                                <button class="skill-pill p1" type="button">Laravel</button>
-                                <button class="skill-pill p2" type="button">Vue 3</button>
-                                <button class="skill-pill p3" type="button">Inertia.js</button>
-                                <button class="skill-pill p4" type="button">MySQL</button>
-                                <button class="skill-pill p5" type="button">Bootstrap 5</button>
-                                <button class="skill-pill p6" type="button">AI Native</button>
+                                <button v-for="(skill, index) in heroSkills" :key="skill" class="skill-pill" :class="`p${index + 1}`" type="button">{{ skill }}</button>
 
                                 <div class="experience-badge">
                                     10+<span>Years Exp.</span>
@@ -102,25 +97,19 @@
                             Read Full History<i class="fa-solid fa-arrow-right ms-2"></i>
                         </a>
                     </div>
-                    <div class="col-lg-8" data-aos="fade-left">
+                    <div v-if="experience" class="col-lg-8" data-aos="fade-left">
                         <div class="card-custom">
                             <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
-                                <span class="font-mono text-accent">2022 - Present</span>
-                                <span class="tech-badge">Remote Work</span>
+                                <span class="font-mono text-accent">{{ experience.start_date }} - {{ experience.end_date }}</span>
+                                <span v-if="experience.location" class="tech-badge">{{ experience.location }}</span>
                             </div>
-                            <h3 class="h4 mb-1">Senior Laravel Developer</h3>
-                            <p class="text-secondary font-mono mb-3">Core Framework Architect & API Lead</p>
+                            <h3 class="h4 mb-1">{{ experience.role_title }}</h3>
+                            <p class="text-secondary font-mono mb-3">{{ experience.company }}</p>
                             <ul class="timeline-list">
-                                <li>Design and maintain secure, multi-tenant database architectures in Laravel.</li>
-                                <li>Engineer high-performance single-page architectures using Vue 3 and Inertia.js.</li>
-                                <li>Pioneered migration of legacy backends to clean domain-driven MVC setups.</li>
+                                <li v-for="accomplishment in experience.accomplishments" :key="accomplishment">{{ accomplishment }}</li>
                             </ul>
                             <div class="d-flex flex-wrap gap-2 mt-3">
-                                <span class="tech-badge">Laravel</span>
-                                <span class="tech-badge">Inertia.js</span>
-                                <span class="tech-badge">Vue 3</span>
-                                <span class="tech-badge">MySQL</span>
-                                <span class="tech-badge">Redis</span>
+                                <span v-for="skill in experience.skills" :key="skill" class="tech-badge">{{ skill }}</span>
                             </div>
                         </div>
                     </div>
@@ -141,46 +130,21 @@
                 </div>
 
                 <div class="row g-4">
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div v-for="(project, index) in projects" :key="project.id" class="col-md-6 col-lg-4" data-aos="fade-up" :data-aos-delay="(index + 1) * 100">
                         <div class="card-custom d-flex flex-column h-100 p-0 overflow-hidden">
                             <div class="portfolio-thumb">
-                                <div class="featured-badge"><i class="fa-solid fa-star me-1"></i>FEATURED</div>
+                                <div v-if="project.is_featured" class="featured-badge"><i class="fa-solid fa-star me-1"></i>FEATURED</div>
                                 <div class="thumb-header"><span class="dot-btn dot-red"></span><span class="dot-btn dot-yellow"></span><span class="dot-btn dot-green"></span></div>
-                                <div class="thumb-body"><span class="thumb-title">LILLA SUSHI</span><span class="thumb-code">lillasushi.fr</span></div>
+                                <div v-if="project.image_path" class="selected-project-image">
+                                    <img :src="`/${project.image_path}`" :alt="project.title" loading="lazy">
+                                </div>
+                                <div v-else class="thumb-body"><span class="thumb-title">{{ project.title }}</span><span class="thumb-code">{{ project.demo_url || project.slug }}</span></div>
                             </div>
                             <div class="p-4 flex-grow-1 d-flex flex-column">
-                                <h3 class="h5 mb-2">Lilla Sushi Restaurant</h3>
-                                <p class="text-secondary font-mono small flex-grow-1">Live online food ordering and management platform deployed in France.</p>
-                                <div class="my-3"><span class="tech-badge">Laravel</span><span class="tech-badge">Vue 3</span><span class="tech-badge">MySQL</span></div>
-                                <div class="d-flex gap-2"><a href="https://lillasushi.fr" target="_blank" rel="noopener" class="btn btn-custom btn-custom-primary btn-custom-sm flex-grow-1">Live Demo</a><a href="/portfolio" aria-label="View Lilla Sushi details" class="btn btn-custom btn-custom-outline btn-custom-sm"><i class="fa-solid fa-circle-info"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-custom d-flex flex-column h-100 p-0 overflow-hidden">
-                            <div class="portfolio-thumb">
-                                <div class="thumb-header"><span class="dot-btn dot-red"></span><span class="dot-btn dot-yellow"></span><span class="dot-btn dot-green"></span></div>
-                                <div class="thumb-body"><span class="thumb-title">FINANCE SAAS</span><span class="thumb-code">multi-tenant.io</span></div>
-                            </div>
-                            <div class="p-4 flex-grow-1 d-flex flex-column">
-                                <h3 class="h5 mb-2">Loan &amp; Investment SaaS</h3>
-                                <p class="text-secondary font-mono small flex-grow-1">A secure multi-tenant dashboard system designed for custom asset management.</p>
-                                <div class="my-3"><span class="tech-badge">Laravel 10</span><span class="tech-badge">Inertia.js</span><span class="tech-badge">MySQL</span></div>
-                                <div class="d-flex gap-2"><a href="/portfolio" class="btn btn-custom btn-custom-primary btn-custom-sm flex-grow-1">Live Demo</a><a href="/portfolio" aria-label="View Loan and Investment SaaS details" class="btn btn-custom btn-custom-outline btn-custom-sm"><i class="fa-solid fa-circle-info"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-custom d-flex flex-column h-100 p-0 overflow-hidden">
-                            <div class="portfolio-thumb">
-                                <div class="thumb-header"><span class="dot-btn dot-red"></span><span class="dot-btn dot-yellow"></span><span class="dot-btn dot-green"></span></div>
-                                <div class="thumb-body"><span class="thumb-title">LARACODEVAULT</span><span class="thumb-code">laracodevault.com</span></div>
-                            </div>
-                            <div class="p-4 flex-grow-1 d-flex flex-column">
-                                <h3 class="h5 mb-2">LMS - LaraCodeVault</h3>
-                                <p class="text-secondary font-mono small flex-grow-1">Laravel learning portal and resource repository platform for developers.</p>
-                                <div class="my-3"><span class="tech-badge">Laravel 11</span><span class="tech-badge">Livewire</span><span class="tech-badge">Tailwind</span></div>
-                                <div class="d-flex gap-2"><a href="https://laracodevault.com" target="_blank" rel="noopener" class="btn btn-custom btn-custom-primary btn-custom-sm flex-grow-1">Live Demo</a><a href="/portfolio" aria-label="View LaraCodeVault details" class="btn btn-custom btn-custom-outline btn-custom-sm"><i class="fa-solid fa-circle-info"></i></a></div>
+                                <h3 class="h5 mb-2">{{ project.title }}</h3>
+                                <p class="text-secondary font-mono small flex-grow-1">{{ project.description }}</p>
+                                <div class="my-3"><span v-for="tech in project.tech_stack" :key="tech" class="tech-badge">{{ tech }}</span></div>
+                                <div class="d-flex gap-2"><a v-if="project.demo_url" :href="project.demo_url" target="_blank" rel="noopener" class="btn btn-custom btn-custom-primary btn-custom-sm flex-grow-1">Live Demo</a><a v-else href="/portfolio" class="btn btn-custom btn-custom-primary btn-custom-sm flex-grow-1">View Project</a><a href="/portfolio" :aria-label="`View ${project.title} details`" class="btn btn-custom btn-custom-outline btn-custom-sm"><i class="fa-solid fa-circle-info"></i></a></div>
                             </div>
                         </div>
                     </div>
@@ -189,7 +153,7 @@
         </section>
 
         <!-- GitHub Projects Glimpse Section -->
-        <section class="py-5 border-top border-color bg-secondary">
+        <section v-if="repos.length" class="py-5 border-top border-color bg-secondary">
             <div class="container py-3">
                 <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3">
                     <div data-aos="fade-right">
@@ -202,31 +166,17 @@
                 </div>
 
                 <div class="row g-4">
-                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div v-for="(repo, index) in repos" :key="repo.id" class="col-md-6" data-aos="fade-up" :data-aos-delay="(index + 1) * 100">
                         <div class="github-repo-card">
                             <div class="repo-header">
-                                <h3 class="repo-name"><a href="/github"><i class="fa-brands fa-github me-2"></i>AI-Coding-Assistant-SaaS</a></h3>
-                                <span class="tech-badge">Active</span>
+                                <h3 class="repo-name"><a :href="repo.repo_url" target="_blank" rel="noopener"><i class="fa-brands fa-github me-2"></i>{{ repo.name }}</a></h3>
+                                <span class="tech-badge">Public</span>
                             </div>
-                            <p class="repo-desc">A highly optimized Claude API + Groq hybrid router core. Seamless routing between models for maximum code analysis efficiency.</p>
+                            <p class="repo-desc">{{ repo.description || 'No description provided for this repository.' }}</p>
                             <div class="repo-meta">
-                                <span><span class="lang-dot lang-php"></span>PHP</span>
-                                <span><i class="fa-regular fa-star me-1"></i>34</span>
-                                <span><i class="fa-solid fa-code-fork me-1"></i>12</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="github-repo-card">
-                            <div class="repo-header">
-                                <h3 class="repo-name"><a href="/github"><i class="fa-brands fa-github me-2"></i>librasys</a></h3>
-                                <span class="tech-badge">Complete</span>
-                            </div>
-                            <p class="repo-desc">A modern digital library system utilizing Laravel 11, Inertia.js, and Vue 3 to manage complex digital lending schedules.</p>
-                            <div class="repo-meta">
-                                <span><span class="lang-dot lang-vue"></span>Vue</span>
-                                <span><i class="fa-regular fa-star me-1"></i>21</span>
-                                <span><i class="fa-solid fa-code-fork me-1"></i>4</span>
+                                <span><span class="lang-dot lang-php"></span>{{ repo.language || 'Unknown' }}</span>
+                                <span><i class="fa-regular fa-star me-1"></i>{{ repo.stars_count }}</span>
+                                <span><i class="fa-solid fa-code-fork me-1"></i>{{ repo.forks_count }}</span>
                             </div>
                         </div>
                     </div>
@@ -243,7 +193,7 @@
                             <span class="font-mono text-accent fs-6">04 / CONNECT</span>
                             <h2 class="h2 display-6 mt-2 mb-3">Have a project in mind?</h2>
                             <p class="text-secondary mb-0" style="max-width: 600px;">
-                                Currently open to remote full-stack roles, custom contract development, and direct relocation opportunities in Tokyo or Osaka, Japan.
+                                {{ settings.relocation_notice || 'Currently open to remote full-stack roles, custom contract development, and direct relocation opportunities in Tokyo or Osaka, Japan.' }}
                             </p>
                         </div>
                         <div class="col-lg-4 text-center text-lg-end">
@@ -257,12 +207,19 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import AppLayout from '../Layouts/AppLayout.vue';
 
-defineProps({
+const props = defineProps({
     settings: Object,
+    experience: Object,
+    projects: { type: Array, default: () => [] },
+    repos: { type: Array, default: () => [] },
 });
+
+const avatarUrl = computed(() => `/${props.settings?.owner_avatar || 'img/myself.jpg'}`);
+const heroSkills = computed(() => (props.experience?.skills || ['Laravel', 'Vue 3', 'Inertia.js', 'MySQL', 'Bootstrap 5', 'AI Native']).slice(0, 6));
 </script>
 
 <style scoped>
@@ -271,6 +228,24 @@ defineProps({
     margin-top: 2rem;
     color: rgba(255, 213, 158, 0.72);
     font-size: 0.86rem;
+}
+
+.selected-project-image {
+    height: 150px;
+    overflow: hidden;
+    border-radius: 0 0 4px 4px;
+}
+
+.selected-project-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.card-custom:hover .selected-project-image img {
+    transform: scale(1.04);
 }
 
 /* Hero visual: template-inspired portrait frame + floating skill pills */
